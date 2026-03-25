@@ -25,6 +25,9 @@ export function Navbar() {
               >
                 Игры
               </a>
+              <a href="#bonuses" className="font-geist text-yellow-400 hover:text-yellow-300 transition-colors duration-200 font-bold">
+                🎁 Бонусы
+              </a>
               <a href="#safety" className="font-geist text-white hover:text-red-500 transition-colors duration-200">
                 Безопасность
               </a>
