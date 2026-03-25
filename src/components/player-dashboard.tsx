@@ -1,6 +1,9 @@
 import { useState } from "react"
 import { Button } from "@/components/ui/button"
 import Icon from "@/components/ui/icon"
+import { CrashGame } from "@/components/games/crash-game"
+import { MinesGame } from "@/components/games/mines-game"
+import { DiceGame } from "@/components/games/dice-game"
 
 interface User {
   id: number
@@ -15,13 +18,14 @@ interface PlayerDashboardProps {
 }
 
 const categories = [
+  { id: "quick", label: "⚡ Быстрые игры", count: "3" },
   { id: "slots", label: "🎰 Слоты", count: "800+" },
   { id: "live", label: "🎥 Live", count: "120+" },
   { id: "crash", label: "🚀 Краш", count: "30+" },
   { id: "table", label: "🃏 Столы", count: "80+" },
 ]
 
-const games: Record<string, { name: string; tag: string; hot?: boolean }[]> = {
+const extGames: Record<string, { name: string; tag: string; hot?: boolean }[]> = {
   slots: [
     { name: "Gates of Olympus", tag: "Pragmatic Play", hot: true },
     { name: "Sweet Bonanza", tag: "Pragmatic Play", hot: true },
@@ -63,27 +67,17 @@ const emojis: Record<string, string> = {
 }
 
 export function PlayerDashboard({ user, onLogout }: PlayerDashboardProps) {
-  const [activeCategory, setActiveCategory] = useState("slots")
+  const [activeCategory, setActiveCategory] = useState("quick")
   const [menuOpen, setMenuOpen] = useState(false)
 
   return (
     <>
-      {/* Аватар и меню в навбаре — рендерится через портал в Navbar */}
-      <div className="fixed inset-0 z-[99998] flex flex-col pointer-events-none">
-        {/* Дашборд-панель снизу-справа */}
-        <div className="mt-auto mb-0 pointer-events-auto">
-          {menuOpen && (
-            <div className="fixed inset-0 z-[99997]" onClick={() => setMenuOpen(false)} />
-          )}
-        </div>
-      </div>
-
-      {/* Полноэкранное меню игрока */}
       {menuOpen && (
         <div className="fixed inset-0 z-[99999] bg-zinc-950 overflow-y-auto">
           <div className="max-w-5xl mx-auto px-4 py-6">
+
             {/* Шапка */}
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex items-center justify-between mb-6">
               <div className="flex items-center gap-4">
                 <div className="w-12 h-12 rounded-full bg-red-500/20 border border-red-500/50 flex items-center justify-center">
                   <span className="text-red-400 font-bold text-lg font-orbitron">
@@ -95,27 +89,20 @@ export function PlayerDashboard({ user, onLogout }: PlayerDashboardProps) {
                   <p className="text-gray-400 text-sm">{user.email}</p>
                 </div>
               </div>
-              <button onClick={() => setMenuOpen(false)} className="text-gray-400 hover:text-white transition-colors">
+              <button onClick={() => setMenuOpen(false)} className="text-gray-400 hover:text-white transition-colors p-2">
                 <Icon name="X" size={28} />
               </button>
             </div>
 
             {/* Баланс */}
-            <div className="bg-gradient-to-r from-red-500/20 to-red-900/10 border border-red-500/30 rounded-2xl p-6 mb-8">
+            <div className="bg-gradient-to-r from-red-500/20 to-red-900/10 border border-red-500/30 rounded-2xl p-5 mb-6">
               <p className="text-gray-400 text-sm mb-1">Ваш баланс</p>
               <p className="text-4xl font-bold text-white font-orbitron">
                 {user.balance.toLocaleString("ru-RU")} <span className="text-red-400">₽</span>
               </p>
               <div className="flex gap-3 mt-4">
-                <a
-                  href="https://t.me/send?start=IVc2aZhZoklF"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex-1"
-                >
-                  <Button className="w-full bg-red-500 hover:bg-red-600 text-white font-bold">
-                    💳 Пополнить
-                  </Button>
+                <a href="https://t.me/send?start=IVc2aZhZoklF" target="_blank" rel="noopener noreferrer" className="flex-1">
+                  <Button className="w-full bg-red-500 hover:bg-red-600 text-white font-bold">💳 Пополнить</Button>
                 </a>
                 <Button variant="outline" className="flex-1 border-white/20 text-white hover:bg-white/10 bg-transparent">
                   💸 Вывести
@@ -141,28 +128,42 @@ export function PlayerDashboard({ user, onLogout }: PlayerDashboardProps) {
               ))}
             </div>
 
-            {/* Игры */}
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8">
-              {games[activeCategory].map((game, i) => (
-                <a
-                  key={i}
-                  href="https://t.me/send?start=IVc2aZhZoklF"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group relative bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-red-500/50 rounded-xl p-4 transition-all duration-200 text-center"
-                >
-                  {game.hot && (
-                    <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full font-bold">🔥</span>
-                  )}
-                  <div className="text-3xl mb-2">{emojis[activeCategory]}</div>
-                  <p className="text-white text-sm font-bold leading-tight mb-1">{game.name}</p>
-                  <p className="text-gray-500 text-xs">{game.tag}</p>
-                  <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
-                    <span className="text-xs text-red-400 font-bold">Играть →</span>
-                  </div>
-                </a>
-              ))}
-            </div>
+            {/* Быстрые игры */}
+            {activeCategory === "quick" && (
+              <div className="space-y-6 mb-8">
+                <p className="text-gray-400 text-sm">⚡ Играй прямо здесь — без перехода на другой сайт</p>
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                  <CrashGame />
+                  <MinesGame />
+                </div>
+                <DiceGame />
+              </div>
+            )}
+
+            {/* Внешние игры */}
+            {activeCategory !== "quick" && (
+              <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-4 mb-8">
+                {extGames[activeCategory]?.map((game, i) => (
+                  <a
+                    key={i}
+                    href="https://t.me/send?start=IVc2aZhZoklF"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group relative bg-zinc-900 hover:bg-zinc-800 border border-zinc-700 hover:border-red-500/50 rounded-xl p-4 transition-all duration-200 text-center"
+                  >
+                    {game.hot && (
+                      <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs px-1.5 py-0.5 rounded-full font-bold">🔥</span>
+                    )}
+                    <div className="text-3xl mb-2">{emojis[activeCategory]}</div>
+                    <p className="text-white text-sm font-bold leading-tight mb-1">{game.name}</p>
+                    <p className="text-gray-500 text-xs">{game.tag}</p>
+                    <div className="mt-3 opacity-0 group-hover:opacity-100 transition-opacity">
+                      <span className="text-xs text-red-400 font-bold">Играть →</span>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            )}
 
             <button
               onClick={onLogout}
@@ -174,7 +175,7 @@ export function PlayerDashboard({ user, onLogout }: PlayerDashboardProps) {
         </div>
       )}
 
-      {/* Кнопка открытия меню (возвращаем наружу через callback) */}
+      {/* Кнопка открытия меню */}
       <button
         onClick={() => setMenuOpen(true)}
         className="flex items-center gap-2 px-4 py-2 rounded-xl bg-zinc-800 hover:bg-zinc-700 border border-zinc-700 hover:border-red-500/50 transition-all duration-200"
