@@ -8,6 +8,7 @@ import { TestimonialsSection } from "@/components/testimonials-section"
 import { FAQSection } from "@/components/faq-section"
 import { CTASection } from "@/components/cta-section"
 import { BonusesSection } from "@/components/bonuses-section"
+import { WinsTicker } from "@/components/wins-ticker"
 import { Navbar } from "@/components/navbar"
 import { Footer } from "@/components/footer"
 
@@ -17,6 +18,7 @@ export default function Index() {
       <Navbar />
       <main>
         <Hero3D />
+        <WinsTicker />
         <BonusesSection />
         <FeaturesSection />
         <section id="technology">
