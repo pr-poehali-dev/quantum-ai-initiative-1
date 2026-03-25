@@ -3,40 +3,40 @@ import { Badge } from "@/components/ui/badge"
 
 const features = [
   {
-    title: "Адаптивная нейрообработка",
-    description: "Самооптимизирующиеся алгоритмы, которые обучаются на нейронных паттернах и улучшают интерпретацию сигналов.",
-    icon: "brain",
-    badge: "ИИ",
-  },
-  {
-    title: "Медицинская защита",
-    description: "Шифрование по стандартам FDA со сквозной защитой конфиденциальных нейронных данных.",
-    icon: "lock",
-    badge: "Сертификат",
-  },
-  {
-    title: "Интуитивное управление",
-    description: "Естественная трансляция мыслей в действия с откликом менее миллисекунды и точностью 99,7%.",
-    icon: "globe",
-    badge: "Точность",
-  },
-  {
-    title: "Предиктивная калибровка",
-    description: "ML-модели, которые предугадывают намерения пользователя и оптимизируют нейронные пути.",
+    title: "Мгновенные выплаты",
+    description: "Вывод средств за считанные минуты на любой удобный способ: карты, криптовалюта, электронные кошельки.",
     icon: "zap",
-    badge: "Умный",
+    badge: "Быстро",
   },
   {
-    title: "Биометрическая интеграция",
-    description: "Бесшовная синхронизация с мониторингом жизненных показателей для контроля здоровья.",
+    title: "Лицензия и безопасность",
+    description: "Работаем по официальной лицензии. Все транзакции шифруются по SSL. Ваши деньги под защитой.",
+    icon: "lock",
+    badge: "Лицензия",
+  },
+  {
+    title: "Тысячи игр",
+    description: "Слоты, рулетка, покер, блэкджек, live-казино с живыми дилерами — всё в одном месте 24/7.",
+    icon: "globe",
+    badge: "1000+",
+  },
+  {
+    title: "Щедрые бонусы",
+    description: "Бонус на первый депозит до 200%, кэшбэк каждую неделю, фриспины и турниры с призовым фондом.",
+    icon: "brain",
+    badge: "Бонусы",
+  },
+  {
+    title: "Удобная касса",
+    description: "Встроенная платёжная система: принимаем карты Visa/MC, USDT, BTC, SBP и популярные кошельки.",
     icon: "link",
-    badge: "Связь",
+    badge: "Платежи",
   },
   {
-    title: "Поддержка XR",
-    description: "Нативная совместимость с AR/VR-средами для терапевтических и рабочих приложений.",
+    title: "VIP-программа",
+    description: "Эксклюзивные привилегии для постоянных игроков: персональный менеджер, увеличенные лимиты, особые бонусы.",
     icon: "target",
-    badge: "XR Ready",
+    badge: "VIP",
   },
 ]
 
@@ -45,9 +45,9 @@ export function FeaturesSection() {
     <section className="py-24 px-6 bg-background">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Возможности нового поколения</h2>
+          <h2 className="text-4xl font-bold text-foreground mb-4 font-sans">Почему выбирают WinZone</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Почувствуйте будущее с технологиями, которые переопределяют возможное
+            Лучшее онлайн-казино с честными выплатами, большим выбором игр и максимальной безопасностью
           </p>
         </div>
 
@@ -61,12 +61,12 @@ export function FeaturesSection() {
               <CardHeader>
                 <div className="flex items-center justify-between mb-2">
                   <span className="text-3xl">
-                    {feature.icon === "brain" && "&#129504;"}
-                    {feature.icon === "lock" && "&#128274;"}
-                    {feature.icon === "globe" && "&#127760;"}
-                    {feature.icon === "zap" && "&#9889;"}
-                    {feature.icon === "link" && "&#128279;"}
-                    {feature.icon === "target" && "&#127919;"}
+                    {feature.icon === "brain" && "🎁"}
+                    {feature.icon === "lock" && "🛡️"}
+                    {feature.icon === "globe" && "🎰"}
+                    {feature.icon === "zap" && "⚡"}
+                    {feature.icon === "link" && "💳"}
+                    {feature.icon === "target" && "👑"}
                   </span>
                   <Badge variant="secondary" className="bg-accent text-accent-foreground">
                     {feature.badge}

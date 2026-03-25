@@ -3,25 +3,25 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 
 const testimonials = [
   {
-    name: "Елена Родригес",
-    role: "Директор по нейронауке, Quantum Dynamics",
-    avatar: "/professional-woman-scientist.png",
-    content:
-      "SynapseAI изменил наш подход к нейрореабилитации. Результаты пациентов улучшились на 340% после внедрения.",
-  },
-  {
-    name: "Маркус Уильямс",
-    role: "Руководитель исследований, Stellar Analytics",
+    name: "Алексей М.",
+    role: "Игрок с 2 лет на платформе",
     avatar: "/cybersecurity-expert-man.jpg",
     content:
-      "Точность и протоколы безопасности не имеют аналогов. Мы значительно ускорили клинические испытания с платформой SynapseAI.",
+      "Вывожу выигрыши каждую неделю — деньги приходят за 20 минут. Ни разу не было задержек. Лучшее казино, где я играл.",
   },
   {
-    name: "Анна Ковальски",
-    role: "Вице-президент по разработке, Nova Industries",
+    name: "Анна К.",
+    role: "VIP-игрок",
     avatar: "/asian-woman-tech-developer.jpg",
     content:
-      "Интеграция прошла безупречно. Адаптивные алгоритмы понимают намерения пользователя лучше любой системы, что мы тестировали.",
+      "Бонусная программа реально щедрая. Получила 150% на первый депозит и уже отыграла. Поддержка отвечает мгновенно.",
+  },
+  {
+    name: "Дмитрий В.",
+    role: "Фанат live-казино",
+    avatar: "/professional-woman-scientist.png",
+    content:
+      "Live-рулетка с настоящими дилерами — это огонь! Атмосфера как в реальном казино. Выплаты честные, без подвохов.",
   },
 ]
 
@@ -30,9 +30,9 @@ export function TestimonialsSection() {
     <section className="py-24 px-6 bg-card">
       <div className="max-w-6xl mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold text-card-foreground mb-4 font-sans">Нам доверяют лидеры</h2>
+          <h2 className="text-4xl font-bold text-card-foreground mb-4 font-sans">Нам доверяют тысячи игроков</h2>
           <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed">
-            Что говорят лидеры индустрии о нашей революционной технологии
+            Реальные отзывы наших игроков — без прикрас
           </p>
         </div>
 
@@ -40,6 +40,11 @@ export function TestimonialsSection() {
           {testimonials.map((testimonial, index) => (
             <Card key={index} className="glow-border slide-up" style={{ animationDelay: `${index * 0.15}s` }}>
               <CardContent className="p-6">
+                <div className="flex mb-4">
+                  {[...Array(5)].map((_, i) => (
+                    <span key={i} className="text-yellow-400 text-lg">★</span>
+                  ))}
+                </div>
                 <p className="text-card-foreground mb-6 leading-relaxed italic">"{testimonial.content}"</p>
                 <div className="flex items-center gap-4">
                   <Avatar>

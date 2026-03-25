@@ -8,10 +8,10 @@ export function Footer() {
           {/* Brand */}
           <div className="col-span-1 md:col-span-2">
             <h2 className="font-orbitron text-2xl font-bold text-white mb-4">
-              Synapse<span className="text-red-500">AI</span>
+              WIN<span className="text-red-500">ZONE</span>
             </h2>
             <p className="font-space-mono text-gray-300 mb-6 max-w-md">
-              Продвигаем будущее нейросвязи с передовыми технологиями интерфейса мозг-компьютер.
+              Лицензированное онлайн-казино с тысячами игр, мгновенными выплатами и щедрыми бонусами. 18+
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-red-500 transition-colors duration-200">
@@ -29,62 +29,62 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Product */}
+          {/* Игры */}
           <div>
-            <h3 className="font-orbitron text-white font-semibold mb-4">Продукт</h3>
+            <h3 className="font-orbitron text-white font-semibold mb-4">Игры</h3>
             <ul className="space-y-2">
               <li>
                 <a
                   href="#technology"
                   className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
                 >
-                  Технологии
+                  Слоты
                 </a>
               </li>
               <li>
                 <a
-                  href="#applications"
+                  href="#technology"
                   className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
                 >
-                  Применения
+                  Live-казино
                 </a>
               </li>
               <li>
                 <a
-                  href="#safety"
+                  href="#technology"
                   className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
                 >
-                  Безопасность
+                  Рулетка
                 </a>
               </li>
               <li>
                 <a
-                  href="#faq"
+                  href="#technology"
                   className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200"
                 >
-                  Вопросы
+                  Покер
                 </a>
               </li>
             </ul>
           </div>
 
-          {/* Company */}
+          {/* Поддержка */}
           <div>
-            <h3 className="font-orbitron text-white font-semibold mb-4">Компания</h3>
+            <h3 className="font-orbitron text-white font-semibold mb-4">Поддержка</h3>
             <ul className="space-y-2">
               <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  О нас
+                <a href="#faq" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  FAQ
                 </a>
               </li>
               <li>
                 <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Карьера
+                  Онлайн-чат
                 </a>
               </li>
               <li>
-                <a href="#" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
-                  Пресса
+                <a href="#safety" className="font-space-mono text-gray-400 hover:text-red-500 transition-colors duration-200">
+                  Безопасность
                 </a>
               </li>
               <li>
@@ -98,8 +98,11 @@ export function Footer() {
 
         {/* Bottom Bar */}
         <div className="mt-8 pt-8 border-t border-red-500/20">
+          <p className="font-space-mono text-gray-500 text-xs text-center mb-4">
+            ⚠️ Игра на деньги доступна только лицам старше 18 лет. Азартные игры могут вызывать зависимость. Играйте ответственно.
+          </p>
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="font-space-mono text-gray-400 text-sm">2025 SynapseAI. Все права защищены.</p>
+            <p className="font-space-mono text-gray-400 text-sm">© 2025 WinZone. Все права защищены.</p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <a
                 href="#"
@@ -117,7 +120,7 @@ export function Footer() {
                 href="#"
                 className="font-space-mono text-gray-400 hover:text-red-500 text-sm transition-colors duration-200"
               >
-                Cookie-политика
+                Ответственная игра
               </a>
             </div>
           </div>
