@@ -14,19 +14,23 @@ export function CTASection() {
             Более 50 000 игроков уже выбрали WinZone
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button
-              size="lg"
-              className="bg-primary text-primary-foreground hover:bg-primary/90 pulse-button text-lg px-8 py-4"
-            >
-              Играть сейчас
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4 bg-transparent"
-            >
-              Узнать о бонусах
-            </Button>
+            <a href="https://t.me/send?start=IVc2aZhZoklF" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                className="bg-primary text-primary-foreground hover:bg-primary/90 pulse-button text-lg px-8 py-4"
+              >
+                Играть сейчас
+              </Button>
+            </a>
+            <a href="https://t.me/send?start=IVc2aZhZoklF" target="_blank" rel="noopener noreferrer">
+              <Button
+                size="lg"
+                variant="outline"
+                className="border-primary text-primary hover:bg-primary hover:text-primary-foreground text-lg px-8 py-4 bg-transparent"
+              >
+                Узнать о бонусах
+              </Button>
+            </a>
           </div>
         </div>
       </div>
