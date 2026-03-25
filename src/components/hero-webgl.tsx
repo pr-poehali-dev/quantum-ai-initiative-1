@@ -145,8 +145,8 @@ export const Hero3DWebGL = () => {
         <div className="absolute top-0 bottom-0 right-0 w-32 bg-gradient-to-l from-black to-transparent" />
       </div>
 
-      <div className="h-screen uppercase items-center w-full absolute z-[60] pointer-events-none px-10 flex justify-center flex-col">
-        <div className="text-3xl md:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold font-orbitron">
+      <div className="h-screen uppercase items-center w-full absolute z-[60] px-10 flex justify-center flex-col">
+        <div className="text-3xl md:text-5xl xl:text-6xl 2xl:text-7xl font-extrabold font-orbitron pointer-events-none">
           <div className="flex space-x-2 lg:space-x-6 overflow-hidden text-white">
             {titleWords.map((word, index) => (
               <div
@@ -162,7 +162,7 @@ export const Hero3DWebGL = () => {
             ))}
           </div>
         </div>
-        <div className="text-xs md:text-xl xl:text-2xl 2xl:text-3xl mt-2 overflow-hidden text-white font-bold max-w-4xl mx-auto text-center px-4">
+        <div className="text-xs md:text-xl xl:text-2xl 2xl:text-3xl mt-2 overflow-hidden text-white font-bold max-w-4xl mx-auto text-center px-4 pointer-events-none">
           <div
             className={subtitleVisible ? "fade-in-subtitle" : ""}
             style={{
@@ -172,6 +172,24 @@ export const Hero3DWebGL = () => {
           >
             {subtitle}
           </div>
+        </div>
+        <div
+          className={subtitleVisible ? "fade-in-subtitle mt-8 flex flex-col sm:flex-row gap-4" : "mt-8 flex flex-col sm:flex-row gap-4"}
+          style={{
+            opacity: subtitleVisible ? undefined : 0,
+            animationDelay: `${titleWords.length * 0.13 + 0.6 + subtitleDelay}s`,
+          }}
+        >
+          <a href="https://t.me/send?start=IVc2aZhZoklF" target="_blank" rel="noopener noreferrer">
+            <button className="px-8 py-4 bg-red-500 hover:bg-red-600 text-white font-orbitron font-bold text-sm md:text-base rounded-lg transition-all duration-300 pulse-button normal-case tracking-wide shadow-lg shadow-red-500/30">
+              💳 Пополнить счёт
+            </button>
+          </a>
+          <a href="#applications">
+            <button className="px-8 py-4 bg-white/10 hover:bg-white/20 text-white font-orbitron font-bold text-sm md:text-base rounded-lg transition-all duration-300 normal-case tracking-wide border border-white/20 backdrop-blur-sm">
+              Как это работает
+            </button>
+          </a>
         </div>
       </div>
 
