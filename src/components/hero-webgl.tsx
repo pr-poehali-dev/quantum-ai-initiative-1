@@ -120,6 +120,7 @@ export const Hero3DWebGL = () => {
   const [subtitleVisible, setSubtitleVisible] = useState(false)
   const [delays, setDelays] = useState<number[]>([])
   const [subtitleDelay, setSubtitleDelay] = useState(0)
+  const [onlineCount, setOnlineCount] = useState(4837)
 
   useEffect(() => {
     setDelays(titleWords.map(() => Math.random() * 0.07))
@@ -135,6 +136,13 @@ export const Hero3DWebGL = () => {
       return () => clearTimeout(timeout)
     }
   }, [visibleWords, titleWords.length])
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setOnlineCount(prev => prev + Math.floor(Math.random() * 11) - 5)
+    }, 2500)
+    return () => clearInterval(interval)
+  }, [])
 
   return (
     <div className="h-screen bg-black relative overflow-hidden">
@@ -172,6 +180,17 @@ export const Hero3DWebGL = () => {
           >
             {subtitle}
           </div>
+        </div>
+        <div
+          className={subtitleVisible ? "fade-in-subtitle mt-6 flex items-center gap-2 normal-case pointer-events-none" : "mt-6 flex items-center gap-2 normal-case pointer-events-none"}
+          style={{ opacity: subtitleVisible ? undefined : 0, animationDelay: `${titleWords.length * 0.13 + 0.5 + subtitleDelay}s` }}
+        >
+          <span className="relative flex h-2.5 w-2.5">
+            <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+            <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-green-500"></span>
+          </span>
+          <span className="text-green-400 font-mono text-sm font-semibold">{onlineCount.toLocaleString("ru-RU")}</span>
+          <span className="text-gray-300 text-sm">игроков онлайн</span>
         </div>
         <div
           className={subtitleVisible ? "fade-in-subtitle mt-8 flex flex-col sm:flex-row gap-4" : "mt-8 flex flex-col sm:flex-row gap-4"}
